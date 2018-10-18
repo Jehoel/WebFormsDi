@@ -3,6 +3,16 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/TheJayMann/WebFormsDi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TheJayMann/WebFormsDi</RepositoryUrl>
+    <Description>Allows the ASP.NET Core dependency injection model to be used with ASP.NET Web Forms using the HttpRuntime.WebObjectActivator introduced in .NET Framework 4.7.2.</Description>
+    <Authors>TheJayMann</Authors>
+    <PackageTags>DependencyInjection WebForms</PackageTags>
+    <Company />
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <BuildNumber Condition="$(BuildNumber) == ''">0</BuildNumber>
+    <Version>1.0.$(BuildNumber)</Version>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
