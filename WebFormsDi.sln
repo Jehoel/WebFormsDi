@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Extensions.DependencyInjection.WebForms", "Microsoft.Extensions.DependencyInjection.WebForms\Microsoft.Extensions.DependencyInjection.WebForms.csproj", "{324F54A8-1B86-4E9A-B2A5-3AA07B37938B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetWebForms.DependencyInjection", "AspNetWebForms.DependencyInjection\AspNetWebForms.DependencyInjection.csproj", "{324F54A8-1B86-4E9A-B2A5-3AA07B37938B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
