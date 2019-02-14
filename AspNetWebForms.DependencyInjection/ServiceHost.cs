@@ -32,13 +32,24 @@ namespace Microsoft.Extensions.DependencyInjection.WebForms {
                         return (_sp, _arg) => Activator.CreateInstance(s, true);
                     }
                 }
-                var factory = _Factories.GetOrAdd(serviceType, CreateFactory);
 
                 var serviceProvider =
                     HttpContext.Current?.Items[ServiceProviderKey] is IServiceScope scope
                     ? scope.ServiceProvider
                     : _GlobalServiceProvider
                 ;
+                // TODO: This shouldn't be necessary strictly for WebForms, but if it is being used directly outside
+                // of ASP.NET internal code, they may be wanting a service directly, rather than using the ActivatorUtilities
+                object serviceInstance = null;
+                try {
+                    serviceInstance = serviceProvider.GetService(serviceType);
+                }
+                // TODO: Find out which exceptions are thrown due to service missing
+                // and only ignore those exceptions
+                catch { }
+                if (!(serviceInstance is null)) return serviceInstance;
+
+                var factory = _Factories.GetOrAdd(serviceType, CreateFactory);
                 return factory(serviceProvider, new object[0]);
             }
         }
