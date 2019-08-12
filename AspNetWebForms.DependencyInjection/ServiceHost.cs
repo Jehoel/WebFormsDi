@@ -3,7 +3,7 @@ using System.Web;
 
 namespace Microsoft.Extensions.DependencyInjection.WebForms
 {
-	public static partial class ServiceHost
+	public static class ServiceHost
 	{
 		internal const String ServiceProviderKey = "Microsoft.Extensions.DependencyInjection." + nameof(ServiceHost);
 
@@ -11,10 +11,13 @@ namespace Microsoft.Extensions.DependencyInjection.WebForms
 
 		public static void EnableServices(Action<IServiceCollection> configureServices)
 		{
-			var serviceCollection = new ServiceCollection();
+			ServiceCollection serviceCollection = new ServiceCollection();
 			configureServices( serviceCollection );
+
 			GlobalServiceProvider = serviceCollection.BuildServiceProvider();
+
 			HttpApplication.RegisterModule( typeof( ScopedServiceProviderModule ) );
+
 			HttpRuntime.WebObjectActivator = new ActivatorServiceProvider();
 		}
 	}
